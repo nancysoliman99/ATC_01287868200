@@ -12,13 +12,13 @@ export class BookingService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  // حجز فعالية
+ 
   bookEvent(eventId: number): Observable<any> {
     const headers = this.getAuthHeaders();
     return this.http.post(this.apiUrl, { eventId }, { headers });
   }
 
-  // جلب كل الحجوزات بتاعة المستخدم
+  
   getUserBookings(): Observable<number[]> {
     const headers = this.getAuthHeaders();
     return this.http.get<any[]>(this.apiUrl, { headers }).pipe(
@@ -26,14 +26,13 @@ export class BookingService {
     );
   }
 
-  // التحقق من حالة الحجز
   isBooked(eventId: number): Observable<boolean> {
     return this.getUserBookings().pipe(
       map(bookedEventIds => bookedEventIds.includes(eventId))
     );
   }
 
-  // إعداد رأس التوثيق
+  
   private getAuthHeaders(): HttpHeaders {
     const token = this.authService.getToken();
     return new HttpHeaders().set('Authorization', `Bearer ${token || ''}`);

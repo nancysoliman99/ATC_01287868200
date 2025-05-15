@@ -32,41 +32,6 @@
 
 //     return this.http.post<Event>(this.apiUrl, formData, { headers });
 //   }
-
-//   getEventById(id: number): Observable<Event> {
-//     const headers = this.getAuthHeaders();
-//     return this.http.get<Event>(`${this.apiUrl}/${id}`, { headers });
-//   }
-
-//   updateEvent(id: number, event: Event, imageFile?: File): Observable<any> {
-//     const headers = this.getAuthHeaders();
-//     const formData = new FormData();
-//     formData.append('id', id.toString());
-//     formData.append('name', event.name || '');
-//     formData.append('description', event.description || '');
-//     formData.append('category', event.category || '');
-//     formData.append('date', event.date || '');
-//     formData.append('venue', event.venue || '');
-//     formData.append('price', event.price?.toString() || '0');
-//     if (imageFile) {
-//       formData.append('image', imageFile);
-//     }
-
-//     return this.http.put(`${this.apiUrl}/${id}`, formData, { headers });
-//   }
-
-//   deleteEvent(id: number): Observable<any> {
-//     const headers = this.getAuthHeaders();
-//     return this.http.delete(`${this.apiUrl}/${id}`, { headers });
-//   }
-
-//   private getAuthHeaders(): HttpHeaders {
-//     const token = this.authService.getToken();
-//     return new HttpHeaders().set('Authorization', `Bearer ${token || ''}`);
-//   }
-
-
-// }
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
