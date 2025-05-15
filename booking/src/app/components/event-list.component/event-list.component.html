@@ -1,0 +1,101 @@
+<div class="event-list-container">
+  <app-nav></app-nav>
+
+  <div class="hero-section">
+    <h1>All Events</h1>
+  </div>
+
+  <div *ngIf="loading" class="loading-spinner">
+loading .....  </div>
+
+  <!-- Admin Add Event button (hidden from view but keeping functionality) -->
+  <a *ngIf="authService.isAdmin()" routerLink="/event-create" class="add-button">Add Event</a>
+
+  <div class="events-grid">
+    <div class="event-card" *ngFor="let event of events">
+      <div class="event-image-container">
+        <img *ngIf="event.image" [src]="'https://localhost:7207' + event.image" alt="{{ event.name }}" class="event-image" />
+        <img *ngIf="!event.image" src="assets/placeholder-event.jpg" alt="{{ event.name }}" class="event-image" />
+      </div>
+
+      <div class="event-content">
+        <div class="event-date">
+          <div class="date-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <span>{{ event.date }}</span>
+        </div>
+
+        <h3 class="event-name">{{ event.name }}</h3>
+
+        <div class="event-venue">
+          <div class="venue-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <span>{{ event.venue }}</span>
+        </div>
+
+        <div class="event-price">
+          <div class="price-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <span>${{ event.price }}</span>
+        </div>
+      </div>
+
+      <div class="event-actions">
+        <!-- Admin actions -->
+        <div class="admin-actions" *ngIf="authService.isAdmin() && event.id !== undefined">
+          <a [routerLink]="['/event-update', event.id]" class="edit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+          </a>
+          <a (click)="deleteEvent(event.id)" class="delete-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              <line x1="10" y1="11" x2="10" y2="17"></line>
+              <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+          </a>
+        </div>
+
+        <!-- User actions -->
+ <div class="user-actions">
+    <ng-container *ngIf="event.id">
+      <button *ngIf="isBooked(event.id)" class="booked-button" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        booked
+      </button>
+
+      <button *ngIf="!isBooked(event.id)"
+              [routerLink]="['/event-details', event.id]"
+              class="book-now">
+       Book Now
+      </button>
+    </ng-container>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+

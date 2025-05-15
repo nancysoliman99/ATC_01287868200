@@ -1,0 +1,55 @@
+
+
+<div class="login-page">
+  <!-- Header/Navigation -->
+  <app-nav></app-nav>
+
+  <!-- Main Content -->
+  <div class="login-container">
+    <div class="login-content">
+      <div class="login-form-wrapper">
+        <h1>Login Your Account</h1>
+        <p class="login-subtitle">For the purpose of industry regulation, your details are required.</p>
+
+        <form (ngSubmit)="login()" class="login-form">
+          <div class="form-group">
+            <label for="username">username*</label>
+            <input
+              id="username"
+              [(ngModel)]="username"
+              name="username"
+              type="text"
+              placeholder="Enter email address"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password*</label>
+            <div class="password-input">
+              <input
+                id="password"
+                [(ngModel)]="password"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                required
+              />
+              <button type="button" class="show-btn">Show</button>
+            </div>
+          </div>
+
+          <button type="submit" class="login-submit-btn">Login Account</button>
+        </form>
+
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+        <div class="register-link">
+          <p>Haven't an Account? <a routerLink="/register" class="register-link-text">Click here to Register</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <app-footer></app-footer>
+</div>

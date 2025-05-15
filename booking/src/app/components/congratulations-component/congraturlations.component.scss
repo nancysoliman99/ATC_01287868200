@@ -1,0 +1,157 @@
+.congratulations-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/crowd-silhouette.png');
+  background-size: cover;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.hero-section h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Success Container */
+.success-container {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.success-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 600px;
+  margin-top: -3rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* Success Icon */
+.success-icon {
+  color: #4CAF50;
+  margin-bottom: 1.5rem;
+}
+
+.success-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.success-message {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 0 0 1.5rem 0;
+}
+
+.success-details {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.back-btn {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #8e2de2 0%, #4a00e0 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.back-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .success-card {
+    margin-top: -2rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .success-card h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .success-container {
+    padding: 1rem;
+  }
+
+  .success-card {
+    margin-top: -1.5rem;
+    padding: 2rem 1.25rem;
+  }
+
+  .success-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .success-message {
+    font-size: 1.1rem;
+  }
+
+  .back-btn {
+    width: 100%;
+    padding: 0.9rem;
+  }
+}

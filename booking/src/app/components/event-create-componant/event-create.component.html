@@ -1,0 +1,130 @@
+<div class="event-create-container">
+  <app-nav></app-nav>
+
+  <div class="hero-section">
+    <h1>Create New Event</h1>
+  </div>
+
+  <div class="form-container">
+    <div class="form-card">
+      <form (ngSubmit)="createEvent()" class="event-form">
+        <div class="form-header">
+          <h2>Event Details</h2>
+          <p>Fill in the information below to create a new event</p>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Event Name*</label>
+          <input
+            id="name"
+            [(ngModel)]="event.name"
+            name="name"
+            type="text"
+            placeholder="Enter event name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            [(ngModel)]="event.description"
+            name="description"
+            placeholder="Enter event description"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" [(ngModel)]="event.category" name="category">
+              <option value="" disabled selected>Select category</option>
+              <option value="Music">Music</option>
+              <option value="Sports">Sports</option>
+              <option value="Arts">Arts</option>
+              <option value="Business">Business</option>
+              <option value="Conference">Conference</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date & Time*</label>
+            <input
+              id="date"
+              [(ngModel)]="event.date"
+              name="date"
+              type="datetime-local"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="venue">Venue</label>
+            <input
+              id="venue"
+              [(ngModel)]="event.venue"
+              name="venue"
+              type="text"
+              placeholder="Enter venue location"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price ($)</label>
+            <input
+              id="price"
+              [(ngModel)]="event.price"
+              name="price"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="0.00"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Event Image</label>
+          <div class="file-upload">
+            <input
+              id="image"
+              type="file"
+              (change)="onFileChange($event)"
+              accept="image/*"
+              class="file-input"
+            />
+            <div class="file-upload-box">
+              <div class="upload-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+              <div class="upload-text">
+                <span class="primary-text">Click to upload image</span>
+                <span class="secondary-text">SVG, PNG, JPG or GIF (max. 2MB)</span>
+              </div>
+            </div>
+            <div *ngIf="imageFile" class="selected-file">
+              Selected: {{ imageFile.name }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a routerLink="/events" class="cancel-btn">Cancel</a>
+          <button type="submit" class="submit-btn">Create Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

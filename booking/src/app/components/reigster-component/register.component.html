@@ -1,0 +1,81 @@
+<div class="register-page">
+  <!-- Header/Navigation -->
+  <div class="login-page">
+  <!-- Header/Navigation -->
+  <app-nav></app-nav>
+
+
+  <!-- Main Content -->
+  <div class="register-container">
+    <div class="register-content">
+      <div class="register-form-wrapper">
+        <h1>Register Individual Account!</h1>
+        <p class="register-subtitle">For the purpose of industry regulation, your details are required.</p>
+
+        <form (ngSubmit)="register()" class="register-form">
+          <div class="form-group">
+            <label for="username">Your fullname*</label>
+            <input
+              id="username"
+              [(ngModel)]="username"
+              name="username"
+              type="text"
+              placeholder="Enter name here"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address*</label>
+            <input
+              id="email"
+              [(ngModel)]="email"
+              name="email"
+              type="email"
+              placeholder="Enter email address"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Create password*</label>
+            <div class="password-input">
+              <input
+                id="password"
+                [(ngModel)]="password"
+                name="password"
+                type="password"
+                placeholder="Enter password"
+                required
+              />
+              <button type="button" class="show-btn">Show</button>
+            </div>
+          </div>
+
+          <div class="form-group role-select" style="display: none;">
+            <label for="role">Role:</label>
+            <select id="role" [(ngModel)]="role" name="role">
+              <option value="User">User</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
+
+
+
+          <button type="submit" class="register-submit-btn">Register Account</button>
+
+
+        </form>
+
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+        <div class="login-link">
+          <p>Already have an Account? <a routerLink="/login" class="login-link-text">Click Here to Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<app-footer></app-footer>
+</div>
