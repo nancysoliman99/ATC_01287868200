@@ -1,0 +1,16 @@
+
+
+dist/
+.env
+*.log
+.angular/
+.vscode/
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.vspscc
+*.vssscc
+*.dbmdl
+*.log

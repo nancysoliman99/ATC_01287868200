@@ -1,0 +1,6 @@
+@Arab_taks_HostAddress = http://localhost:5057
+
+GET {{Arab_taks_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

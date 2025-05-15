@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arab taks", "Arab taks\Arab taks.csproj", "{51962049-C148-4828-8001-50E8FFC35C86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51962049-C148-4828-8001-50E8FFC35C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51962049-C148-4828-8001-50E8FFC35C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51962049-C148-4828-8001-50E8FFC35C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51962049-C148-4828-8001-50E8FFC35C86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58516477-1565-4CD3-AE4B-7D73F7875B25}
+	EndGlobalSection
+EndGlobal
